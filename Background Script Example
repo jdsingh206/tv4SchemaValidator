@@ -1,14 +1,36 @@
 var schemas = new global.demoJSONSchema(); //The SI has demo schema to validate. Add more schemas in this if required.
 
 var payload = {
-  "checked": false,
-  "dimensions": {
-    "width": 5,
-    "height": 10
-  },
-  "id": 1,
-  "name": "A green door",
-  "price": 12.5
+    "number": 123,
+    "string": "sample data",
+    "number string": "8143661439548533232",
+    "array": [
+        1,
+        2,
+        3,
+        {
+            "value": "8143661439548533232n",
+            "type": "Big Number"
+        },
+        "8143661439548533232"
+    ],
+    "safe integer": 9007199254740991,
+    "unsafe integer": {
+        "value": "9007199254111741001n",
+        "type": "Big Number"
+    },
+    "object": {
+        "complex": [
+            40.66,
+            -
+            73.23,
+            {
+                "value": "-73.9899789999999000000009n",
+                "type": "Big Number"
+            }
+        ],
+        "type": "Point"
+    }
 };
 
 var result = tv4.validateMultiple(payload, schemas.schemaOne()); //We can call tv4 script include directly here as it is not declared as a class
