@@ -1,0 +1,15 @@
+var schemas = new global.demoJSONSchema(); //The SI has demo schema to validate. Add more schemas in this if required.
+
+var payload = {
+  "checked": false,
+  "dimensions": {
+    "width": 5,
+    "height": 10
+  },
+  "id": 1,
+  "name": "A green door",
+  "price": 12.5
+};
+
+var result = tv4.validateMultiple(payload, schemas.schemaOne()); //We can call tv4 script include directly here as it is not declared as a class
+gs.info(JSON.stringify(result));
